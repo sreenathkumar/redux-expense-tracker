@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import deleteImage from "../../assets/images/delete.svg";
 import editImage from "../../assets/images/edit.svg";
 import {
@@ -13,15 +13,16 @@ export default function Transaction({ transaction }) {
   const dispatch = useDispatch();
 
   const path = useLocation().pathname;
-  const navigate = useNavigate();
 
   const handleEdit = () => {
     if (path !== "/transactions") {
       dispatch(editActive(transaction));
     } else {
       //var tran = transaction;
-      dispatch(editActive(transaction));
-      navigate("/");
+      //dispatch(editActive(transaction));
+      //navigate("/");
+      const modalElement = document.getElementById("authentication-modal");
+      modalElement.classList.remove("hidden");
     }
     dispatch(editActive(transaction));
   };

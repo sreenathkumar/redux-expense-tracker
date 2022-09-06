@@ -10,6 +10,7 @@ import Transaction from "./Transaction";
 import { Link } from "react-router-dom";
 import Pagination from "../ui/Pagination";
 import { fetchTotalTransactions } from "../../features/pagination/paginationSlice";
+import Modal from "../modal";
 
 const TotalTransactions = () => {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ const TotalTransactions = () => {
 
   return (
     <>
+      <Modal />
       <div className="filter-container">
         <span
           className={`filter-item ${filterType === "income" && "active"}`}
